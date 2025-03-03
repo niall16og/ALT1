@@ -1,0 +1,859 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+}
+
+.head-title {
+    height: 500px;
+    background-color: #d9d9d9;
+    position: relative;
+    border-radius: 50px;
+}
+
+.head-title::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: rgba(255,255,255,.8);
+    text-align: center;
+}
+
+h2 {
+    font-family: helvetica;
+}
+
+#brief {
+    font-size: 1em;
+}
+
+.keywords {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    grid-template-areas:
+    "Eday-iss Eday-def"
+    "Imp-Elim Imp-def"
+    "Embed-sys Embed-def"
+    "Func-prog Func-def";
+}
+
+.keywords p {
+    display: inline;
+}
+
+#Eday-iss {
+    grid-area: Eday-iss;
+    margin: auto;
+}
+
+#Eday-def {
+    grid-area: Eday-def;
+    line-height: 1.4em;
+}
+
+#Imp-Elim {
+    grid-area: Imp-Elim;
+    margin: auto;
+}
+
+#Imp-def {
+    grid-area: Imp-def;
+    line-height: 1.4em;
+}
+
+#Embed-sys {
+    grid-area: Embed-sys;
+    margin: auto;
+}
+
+#Embed-def {
+    grid-area: Embed-def;
+    line-height: 1.4em;
+}
+
+#Func-prog {
+    grid-area: Func-prog;
+    margin: auto;
+}
+
+#Func-def {
+    grid-area: Func-def;
+    line-height: 1.4em;
+}
+
+.aims{
+    background-color: rgba(62%,100%,58%,.2);
+    padding: auto 2em;
+    width:100%;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    scroll-margin-top: 110px;
+}
+
+.aims h1{
+    font-size: 50px;
+    font-family: Helvetica;
+    padding:10px;
+}
+
+
+
+.aims p {
+  font-family: Arial;
+  font-size: 18px;
+}
+
+.grid{
+    width:1000px;
+    margin:0 auto 0 auto;
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+    "top top"
+    "head head"
+    "sidebar content"
+    "sidebar footer";
+    gap: 0;
+}
+
+.topbar {
+    grid-area: top;
+    display:grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: 
+    "nav nav";
+    height: 100px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+}
+
+nav {
+    grid-area: nav;
+    background-color: black;
+    display:block;
+    height: 100px;
+    width:(vw);
+}
+
+.logonav {
+    grid-area: logonav;
+    height:100px;
+}
+
+
+nav ul li {
+    list-style: none;
+    display:block;
+    float:left;
+    line-height: 100px;
+}
+
+nav ul li a {
+    color:white;
+    text-decoration: none;
+    display:block;
+    padding:0 20px;
+    font-family: sans-serif;
+}
+
+nav ul li a:hover, .current {
+    background-color:rgb(62%,100%,58%);
+    color:black;
+}
+
+header {
+    grid-area:head;
+    margin-bottom: 10px;
+}
+
+header img {
+    border-radius: 0 0 50px 50px;
+    width:100%;
+    height: 100%;
+    filter: brightness(200%);
+}
+
+aside {
+    margin-right: 5px;
+    top:100px;
+    height:calc(100vh - 140px);
+    position: sticky;
+    align-self:start;
+    grid-area:sidebar;
+    background-color: aliceblue;
+    border-radius: 50px/* 0 0 50px*/;
+    padding: 20px;
+    display:flex;
+    flex-flow:wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.home-page, .about-side {
+    padding: 10px;
+    display:flex;
+    flex-flow:wrap;
+    justify-content: center;
+}
+
+aside h2 {
+    font-family:sans-serif;
+    padding: 5px;
+}
+
+.home-page h2, .about-side h2{
+    font-family:sans-serif;
+    padding: 5px;
+}
+
+.home-page ul, .about-side ul {
+    list-style: none;
+}
+
+.home-page ul li, .about-side ul li{
+    margin: 5px;
+}
+
+.home-page button, .about-side button {
+    display: block;
+    border: none;
+    background-color: aqua;
+    border-radius: 10px;
+    height: 40px;
+    padding: 10px;
+    width:200px;
+    text-decoration: none;
+    transition: .5s ease;
+    margin: auto;
+}
+
+.home-page button:hover, .about-side button:hover {
+    background-color: aquamarine;
+    width: 175px;
+    border-radius: 20px;
+}
+
+.home-page a, .about-side a {
+    text-decoration: none;
+}
+
+.home-page h3, .about-side h3 {
+    text-decoration: none;
+}
+
+.cta button {
+    display: block;
+    border: none;
+    background-color: rgba(62%,100%,58%,.3);
+    border-radius: 30px;
+    height: 60px;
+    padding: 10px;
+    width:200px;
+    text-decoration: none;
+    transition: .5s ease;
+}
+
+.cta button:hover {
+    background-color: rgba(62%,100%,58%,.8);;
+    width: 175px;
+}
+
+.cta a {
+    text-decoration: none;
+}
+
+.cta h3 {
+    font-size: 25px;
+}
+
+.gallery {
+    columns: 3 auto;
+    margin: 10px 0;
+    display: block;
+    height: fit-content;
+}
+
+.gall-imgs {
+    display: block;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+.gall-imgs img {
+    width: 250px;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: .5em;
+    animation: gallery-fade;
+    animation-timeline: view();
+    transition: transform 1.3s ease;
+}
+.gall-imgs:hover img {
+    transform: scale(1.05);
+}
+
+.gall-imgs p {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 0 0 0 1em;
+    opacity: 0; /*sets text to transparent*/
+    max-height: 0;/*limits the height of p to 0*/
+    overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
+    transition: opacity 1.7s , max-height 1.3s ease-in-out;
+    position: absolute;
+    bottom: 10px;
+    color: white;
+}
+
+.gall-imgs:hover p {
+    opacity: 1;
+    max-height: 40px; /* Ensure this value is enough to show the full paragraph */
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    padding: 0 .5em;
+    margin-left: .5em;
+}
+
+
+@keyframes gallery-fade {
+    0% {opacity:0;}
+    65%,100% {opacity: 1;}
+}
+
+.contact-side {
+    padding:10px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+}
+
+.contact-side a {
+    font-size: 15px;
+}
+
+.contact-side p {
+    font-size: 15px;
+    padding: 10px 0;
+    font-family: sans-serif;
+}
+
+main {
+    grid-area:content;
+    background-color: #E9E9E9;
+    border-radius: 50px;
+    padding:20px;
+    margin-left: 5px;
+}
+
+.indent {
+    padding-left:20px;
+}
+
+.indent1 {
+    padding-left: 35px;
+}
+
+.contact-main {
+    font-family: sans-serif;
+    padding: 1em;
+    display: flex;
+    flex-flow: wrap;
+    justify-content:center;
+}
+
+.contact-main h4 {
+    font-size: 32px;
+}
+
+.contact-main p {
+    flex-basis: 100%;
+    padding: 1em;
+    font-size: 16px;
+}
+
+.intro, #Mission, #Who, #Values, #Journey {
+    scroll-margin-top: 110px;
+}
+
+.intro h1, .about-page h1, #gallery-h1 {
+    font-size: 50px;
+    font-family: Helvetica;
+}
+
+#gallery-h1 {
+    text-align-last: center;
+}
+
+.intro p, .about-page p {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    font-family: arial;
+    line-height: 22px;
+}
+
+.intro, .about-page {
+    padding:10px;
+}
+
+.about-page section {
+    padding:10px;
+    animation: about-fade;
+    animation-timeline: view();
+}
+
+@keyframes about-fade {
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+
+.product{
+    background-color: rgba(62%,100%,58%,.2);
+    padding:5px 5px 10px;
+    width:100%;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    scroll-margin-top: 110px;
+}
+
+.product h1{
+    font-size: 50px;
+    font-family: Helvetica;
+    padding:10px;
+}
+
+.prod1 {
+    width:300px;
+    background-color: white;
+    padding:10px;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    float:left;
+}
+
+.prod1 img {
+    width:300px;
+    border-radius: 20px;
+    padding:0 0 10px 0;
+}
+
+.prod1 h2 {
+    order:-1;
+    padding:0 0 5px;
+    font-family:sans-serif;
+}
+
+.prod1 p {
+  font-family: Arial;
+  font-size: 18px;
+  opacity: 0; /*sets text to transparent*/
+  max-height: 0;/*limits the height of p to 0*/
+  overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
+  transition: opacity 2s , max-height 1.5s ease-out;
+}
+
+.prod1:hover p {
+  opacity: 1;
+  max-height: 145px; /* Ensure this value is enough to show the full paragraph */
+}
+
+
+/*
+.prod1 p {
+    font-family: arial;
+    font-size: 18px;
+    display:none;
+    transition: display 2s ease;
+}
+
+.prod1:hover p{
+    display:block;
+}
+*/
+
+.prod2 {
+    width:300px;
+    background-color: white;
+    padding:10px;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    float:right;
+}
+
+.prod2 img {
+    width:300px;
+    border-radius: 20px;
+    padding:0 0 10px 0;
+}
+
+.prod2 h2 {
+    order:-1;
+    padding:0 0 5px;
+    font-family:sans-serif;
+}
+
+.prod2 p {
+  font-family: Arial;
+  font-size: 18px;
+  opacity: 0; /*sets text to transparent*/
+  max-height: 0;/*limits the height of p to 0*/
+  overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
+  transition: opacity 2s , max-height 1.5s ease-out;
+}
+
+.prod2:hover p {
+  opacity: 1;
+  max-height: 145px; /* Ensure this value is enough to show the full paragraph */
+}
+
+.testims{
+    padding:10px;
+    display:flex;
+    flex-flow: wrap;
+    justify-content: center;
+    scroll-margin-top: 110px;
+}
+
+.testims h1{
+    font-size: 50px;
+    font-family: Helvetica;
+    padding:10px;
+}
+
+.testim1 {
+    height:200px;
+    background-color: azure;
+    padding:20px;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row ;
+    width: fit-content;
+    overflow: hidden;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.testim1 img {
+    height:200px;
+    border-radius: 50%;
+}
+
+.quote1 {
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    width: fit-content;
+}
+
+.quote1 q {
+    padding:0;
+    max-height:0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+.quote1 p {
+    padding: 0;
+}
+
+.testim1:hover .quote1 q{
+    max-height: 140px;
+    opacity:1;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+/*
+.testim1 p {
+    padding: 10px;
+    align-self: center;
+    opacity: 0;
+    height: fit-content;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 3s ease, opacity 1.5s ease;
+}
+
+.testim1:hover {
+    transition:max-width 3s ease, opacity 1.5s ease;
+    max-width: 500px;
+}
+
+.testim1:hover p{
+    transition:max-width 3s ease, opacity 1.5s ease;
+    max-width: 500px;
+    opacity:1;
+}
+*/
+
+.testim2 {
+    height:200px;
+    background-color: azure;
+    padding:20px;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row ;
+    width: fit-content;
+    overflow: hidden;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.testim2 img {
+    height:200px;
+    border-radius: 50%;
+    order:1
+}
+
+.quote2 {
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    width: fit-content;
+    justify-content: flex-end;
+}
+
+.quote2 q {
+    padding:0;
+    max-height:0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+.quote2 p {
+    padding: 0;
+}
+
+.testim2:hover .quote2 q{
+    max-height: 140px;
+    opacity:1;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+.testim3 {
+    height:200px;
+    background-color: azure;
+    padding:20px;
+    border-radius: 20px;
+    display:flex;
+    flex-flow: row ;
+    width: fit-content;
+    overflow: hidden;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.testim3 img {
+    height:200px;
+    border-radius: 50%;
+}
+
+.quote3 {
+    padding: 10px;
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    width: fit-content;
+}
+
+.quote3 q {
+    padding:0;
+    max-height:0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+.quote3 p {
+    padding: 0;
+}
+
+.testim3:hover .quote3 q{
+    max-height: 140px;
+    opacity:1;
+    transition: max-height 2s ease, opacity 2s ease;
+}
+
+footer {
+    grid-area: footer;
+    padding:20px;
+    background-color: black;
+    display: flex;
+    flex-flow: wrap;
+    border-radius: 50px;
+    justify-content: space-around;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.social {
+    width: 250px;
+    display: flex;
+    flex-flow: wrap;
+    padding: 10px;
+}
+
+.social p {
+    color:white;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+
+.container {
+    display: flex;
+    gap:20px;
+}
+
+.container a {
+    background-color: white;
+    padding: 1em;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.05);
+    position: relative;
+}
+
+.container a svg {
+    height:32px;
+}
+
+.container a::before {
+    content:attr(data-social);
+    position: absolute;
+    transform: translateY(-30px) rotate(25deg);
+    background-color: var(--accent-color);
+    color: white;
+    padding: .5em 1em;
+    border-radius: 100px;
+    opacity: 0;
+    transition: all .3s cubic-bezier(.42,0,.25,1.83);
+}
+
+.container a:hover {
+    background-color: var(--accent-color);
+    fill: white;
+    border: solid 2px white;
+}
+
+.container a::after {
+    content:"";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translateY(-10px) rotate(25deg);
+    opacity: 0;
+    transition: all .3s cubic-bezier(.42,0,.25,1.83);
+}
+
+.container a:hover::before {
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+}
+
+.container a:hover::after {
+    transform: translateY(-45px) rotate(0);
+    opacity: 1;
+}
+
+
+/*
+.logos {
+    display: flex;
+    gap:10px;
+}
+
+.logos a{
+    background-color: white;
+    border-radius: 50%;
+    padding: 1em;
+    height:64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    align-items: center;
+}
+
+.logos a svg {
+    height: 32px;
+    padding:1em;
+    align-self: center;
+    transition: .3s ease;
+    position: relative;
+}
+
+.logos svg::before {
+    content:"Twitter";
+    padding:.1em;
+    position: absolute;
+    background-color: pink;
+}
+
+/*.logos svg:hover {
+    width: 55px;
+    
+}*/
+
+.address {
+    padding-right: 30px;
+}
+
+.address p {
+    color:white;
+    font-size: 20px;
+    font-family: sans-serif;
+    line-height: 27px;
+}
+
+.copyright {
+    flex-basis: 100%;
+    padding: 10px;
+    display:flex;
+    justify-content: center;
+}
+
+.copyright p{
+    color: white;
+    font-family: sans-serif;
+}
+
+.copyright p a {
+    text-decoration: none;
+    color:red;
+}
+
+.copyright p a:hover {
+    color:pink;
+}
