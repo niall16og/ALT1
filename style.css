@@ -8,6 +8,31 @@ html {
     font-family: sans-serif;
 }
 
+#chosen, #design, #coding, #reflect, #ref-imgs {
+    scroll-margin-top: 110px;
+}
+
+hr {
+    margin: 10px;
+}
+
+.count-btn {
+    display: block;
+    border: none;
+    background-color: lightgrey;
+    border-radius: 10px;
+    height: 50px;
+    padding: 10px;
+    width:200px;
+    overflow: hidden;
+    text-decoration: none;
+    margin: auto;
+}
+
+.cta h4 {
+    font-size: 20px;
+}
+
 .head-title {
     height: 500px;
     background-color: #d9d9d9;
@@ -302,9 +327,10 @@ aside h2 {
     border: none;
     background-color: aqua;
     border-radius: 10px;
-    height: 40px;
+    height: 50px;
     padding: 10px;
     width:200px;
+    overflow: hidden;
     text-decoration: none;
     transition: .5s ease;
     margin: auto;
@@ -313,7 +339,7 @@ aside h2 {
 .home-page button:hover, .about-side button:hover {
     background-color: aquamarine;
     width: 175px;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 .home-page a, .about-side a {
@@ -322,6 +348,10 @@ aside h2 {
 
 .home-page h3, .about-side h3 {
     text-decoration: none;
+}
+
+.cta {
+    margin-top: 30px;
 }
 
 .cta button {

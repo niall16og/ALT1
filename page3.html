@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="eng">
     <head>
-        <link rel="icon" type="image" href="EcoGlowLogo.png" />
-        <title>EcoGlow</title>
+        <title>ALT1</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="style.css" />
-        <meta name="description" content="EcoGlow Home Page">
+        <meta name="description" content="ALT1 Plan and Design">
     </head>
     <body>
         <div class="grid">
@@ -27,34 +26,39 @@
             </header>
             <aside>
                 <div class="home-page">
-                    <h2>Home</h2>
+                    <h2>Plan and Design</h2>
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Introduction</h3></button></a
+                                ><button><h3>Project Ideas</h3></button></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#chosen"
+                                ><button><h3>Chosen Project</h3></button></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#design"
+                                ><button><h3>Design &amp; Function</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#product"
-                                ><button><h3>Featured Products</h3></button></a
+                                ><button><h3>The Circuits</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#testims"
-                                ><button><h3>Testimonials</h3></button></a
+                                ><button><h3>Components Required</h3></button></a
                             >
                         </li>
                     </ul>
                 </div>
                 <div class="cta">
-                    <a href="products.html"
-                        ><button><h3>SHOP NOW</h3></button></a
+                    <a href="page7.html"
+                        ><button><h4><p>Word Count: <span class="word-count"></span></p></h4></button></a
                     >
-                </div>
-                <div class="contact-side">
-                    <h2>Contact Us</h2>
-                    <p>Email: <a href="mailto:contact-us@ecoglow.com">contact-us@ecoglow.com</a></p>
-                    <p>Phone: 091 000 0000</p>
                 </div>
             </aside>
             <main>
@@ -66,25 +70,14 @@
                         <li><p>From the first idea, we developed another idea of making general room electronics including motion activated lights and an automatic fan based on temperature with a temperature display. All with an aim at those that may be less able to control these electronics through more manual means.</p></li>
                     </ol>
                     <br />
-                    <h1>Chosen Project</h1>
+                    <h1 id="chosen">Chosen Project</h1>
                     <br>
                     <p>The project we have chosen to do is the 2nd idea we had. We chose this project because we felt it helped contribute to the resolving of accessibility issues in home environments. The motion sensor means that no physical input is required from a user after entering the room, while a thermistor ensures the fan is only on when the temperature is higher than desired, reducing distractions and saving energy.</p>
                     <br>
-                    <h1>Design and Function</h1>
+                    <h1 id="design">Design and Function</h1>
                     <br>
                     <p>This project uses two circuits to deliver the desired outputs, one circuit for detecting motion and another for reading temperature and giving outputs. When the first circuit detects motion it will send a radio message “on” to the second circuit which will then turn on an LED light. When the first circuit stops detecting human presence it sends another radio message “off“ to the second circuit, which will then turn off the light. While the second circuit is running the thermistor will always check if the temperature is above the desired level, in this case 20°C, if it is, the motor turns on until the temperature is back to or below the desired temperature. There is also a screen on the second circuit that displays the temperature in the room.</p>
                     <br>
-                    
-                    <div class="keywords">
-                        <p id="Eday-iss"><b>Everyday Issue</b></p>
-                        <p id="Imp-Elim"><b>Improved or Eliminated</b></p>
-                        <p id="Embed-sys"><b>Embedded System</b></p>
-                        <p id="Func-prog"><b>Functional Program</b></p>
-                        <p id="Eday-def">The issue must be something that affects everyday life in the home or school </p>
-                        <p id="Imp-def">The issue/problem must have a viable solution that either sufficiently reduces or entirely removes the effect of the problem from the environment.</p>
-                        <p id="Embed-def">The solution must involve an embedded system, such as a microbit, that will be programmed to perform the specific task required to solve the problem.</p>
-                        <p id="Func-def">The solution must involve a suitable, working program to take inputs and give appropriate outputs that contribute to the solution.</p>
-                    </div>
                 </section>
                 <section class="product" id="product">
                     <h1>The Circuits</h1>
@@ -212,5 +205,6 @@
                 </div>
             </footer>
         </div>
+    <script src="main.js"></script>
     </body>
 </html>

@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="eng">
     <head>
-        <link rel="icon" type="image" href="EcoGlowLogo.png" />
-        <title>EcoGlow</title>
+        <title>ALT1</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="style.css" />
-        <meta name="description" content="EcoGlow Home Page">
+        <meta name="description" content="ALT1 Create">
     </head>
     <body>
         <div class="grid">
@@ -27,34 +26,24 @@
             </header>
             <aside>
                 <div class="home-page">
-                    <h2>Home</h2>
+                    <h2>Create</h2>
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Introduction</h3></button></a
+                                ><button><h3>Assembly</h3></button></a
                             >
                         </li>
                         <li>
-                            <a href="#product"
-                                ><button><h3>Featured Products</h3></button></a
-                            >
-                        </li>
-                        <li>
-                            <a href="#testims"
-                                ><button><h3>Testimonials</h3></button></a
+                            <a href="#coding"
+                                ><button><h3>Coding</h3></button></a
                             >
                         </li>
                     </ul>
                 </div>
                 <div class="cta">
-                    <a href="products.html"
-                        ><button><h3>SHOP NOW</h3></button></a
+                    <a href="page7.html"
+                        ><button><h4><p>Word Count: <span class="word-count"></span></p></h4></button></a
                     >
-                </div>
-                <div class="contact-side">
-                    <h2>Contact Us</h2>
-                    <p>Email: <a href="mailto:contact-us@ecoglow.com">contact-us@ecoglow.com</a></p>
-                    <p>Phone: 091 000 0000</p>
                 </div>
             </aside>
             <main>
@@ -64,7 +53,7 @@
                         The project requires the assembly of two circuits. The first circuit will require a micro:bit, a sensor:bit, a PIR sensor and wires. The micro:bit will be slotted into the sensor:bit. The wires will be used to connect the PIR sensor to the sensor:bit. The second circuit requires a micro:bit, a sensor:bit, a LED, a thermistor, a motor, an OLED display and wires. Again, the microbit will be slotted into the sensor:bit and the wires will be used to connect the other components to the sensor:bit. Both circuits may be powered by battery packs or else by a cable plugged into a computer.
                     </p>
                     <br>
-					<h1>Coding</h1>
+					<h1 id="coding">Coding</h1>
                     <p>
                         The project requires two separate programs for code. One to detect motion on the first circuit and send a signal to the second circuit to turn on or off components, and another to display the temperature in the room on the OLED display and check for an on or off signal and manage the power sent to each component. Both circuits required the smart home extension to be added to the micro:bit code editor. View the code for both circuits below.
                     </p>
@@ -128,6 +117,8 @@
                     </p>
                 </div>
             </footer>
+            </main>
         </div>
+    <script src="main.js"></script>
     </body>
 </html>
