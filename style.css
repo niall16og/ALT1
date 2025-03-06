@@ -637,22 +637,22 @@ main {
     width: fit-content;
 }
 
-.quote1 q {
+.quote1 .comp {
     padding:0;
     max-height:0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 2s ease, opacity 2s ease;
+    transition: max-height 1.5s ease, opacity 1.5s ease;
 }
 
 .quote1 p {
     padding: 0;
 }
 
-.testim1:hover .quote1 q{
-    max-height: 140px;
+.testim1:hover .quote1 .comp{
+    max-height: 50px;
     opacity:1;
-    transition: max-height 2s ease, opacity 2s ease;
+    transition: max-height 1.5s ease, opacity 1.5s ease;
 }
 
 /*
@@ -706,22 +706,22 @@ main {
     justify-content: flex-end;
 }
 
-.quote2 q {
+.quote2 .comp {
     padding:0;
     max-height:0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 2s ease, opacity 2s ease;
+    transition: max-height 1.5s ease, opacity 1.5s ease;
 }
 
 .quote2 p {
     padding: 0;
 }
 
-.testim2:hover .quote2 q{
-    max-height: 140px;
+.testim2:hover .quote2 .comp{
+    max-height: 50px;
     opacity:1;
-    transition: max-height 2s ease, opacity 2s ease;
+    transition: max-height 1.5s ease, opacity 1.5s ease;
 }
 
 /*
