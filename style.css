@@ -12,6 +12,20 @@ html {
     scroll-margin-top: 110px;
 }
 
+.ord-idea {
+	font-size: 20px;
+}
+
+.refs a {
+	text-decoration:none;
+	color: black;
+}
+
+.refs a:hover {
+	background-color: rgba(0,0,0,.5);
+	border-radius: 5px;
+}
+
 hr {
     margin: 10px;
 }
@@ -191,6 +205,7 @@ table {
 
 table, td, tr, th {
     border: 2px solid grey;
+	border-radius: 5px;
 }
 
 table td {
@@ -813,7 +828,7 @@ footer {
     align-items: center;
 }
 
-.social {
+.docs {
     width: 250px;
     display: flex;
     flex-flow: wrap;
@@ -821,7 +836,7 @@ footer {
     justify-content: center;
 }
 
-.social p {
+.docs p {
     color:white;
     font-size: 20px;
     font-family: sans-serif;
@@ -935,11 +950,11 @@ footer {
     
 }*/
 
-.address {
+.author {
     padding-right: 30px;
 }
 
-.address p {
+.author p {
     color:white;
     font-size: 20px;
     font-family: sans-serif;
