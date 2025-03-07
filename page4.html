@@ -7,8 +7,12 @@
         <meta name="description" content="ALT1 Create">
     </head>
     <body>
+        <div class="menu">
+                    <button onclick="menuToggle()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m242-200 206.67-280L242-760h82l206.67 280L324-200h-82Zm247.33 0L696-480 489.33-760h82L778-480 571.33-200h-82Z"/></svg>
+                    </button>
+        </div>
         <div class="grid">
-            <div class="topbar">
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.html">Meeting The Brief</a></li>
@@ -20,7 +24,6 @@
                         <li><a href="page7.html">Summary Word Count</a></li>
                     </ul>
                 </nav>
-            </div>
             <header>
                 <div data-title="Create" class= head-title></div>
             </header>
@@ -30,12 +33,12 @@
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Assembly</h3></button></a
+                                ><button onclick="menuClose()"><h3>Assembly</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#coding"
-                                ><button><h3>Coding</h3></button></a
+                                ><button onclick="menuClose()"><h3>Coding</h3></button></a
                             >
                         </li>
                     </ul>
@@ -46,6 +49,7 @@
                     >
                 </div>
             </aside>
+            <div id="overlay" onclick="menuClose()"></div>
             <main>
                 <section class="intro" id="intro">
                     <h1>Assembly</h1>
@@ -67,6 +71,7 @@
 					<h2 style="text-align:center;">Outputs Circuit</h2>
 					<br>
 					<div style="position:relative;height:calc(370px + 5em);width:100%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/---codeembed#pub:_Wcj0HqUxu9VK" allowfullscreen="allowfullscreen" frameborder="0" sandbox="allow-scripts allow-same-origin"></iframe></div>
+                </section>
             </main>
             <footer>
                 <div class="docs">
@@ -85,7 +90,6 @@
                     </p>
                 </div>
             </footer>
-            </main>
         </div>
     <script src="main.js"></script>
     </body>

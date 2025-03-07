@@ -12,6 +12,89 @@ html {
     scroll-margin-top: 110px;
 }
 
+/*
+.grid{
+    width:1000px;
+    margin:0 auto 0 auto;
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+    "nav nav"
+    "head head"
+    "sidebar content"
+    "sidebar footer";
+    gap: 0;
+}*/
+
+nav {
+    grid-area: nav;
+    background-color: lightgrey;
+    display:block;
+    height: 100px;
+    width:(vw);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+nav ul li {
+    list-style: none;
+    display:block;
+    float:left;
+    line-height: 100px;
+}
+
+nav ul li a {
+    color:black;
+    text-decoration: none;
+    display:block;
+    padding:0 20px;
+    font-family: sans-serif;
+}
+
+nav ul li a:hover, .current {
+    background-color: black;
+    color:lightgrey;
+}
+
+header {
+    grid-area:head;
+    margin-bottom: 10px;
+}
+
+\\Tablet 
+
+
+
+.grid{
+    width:1000px;
+    margin:0 auto 0 auto;
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas:
+    "nav nav"
+    "head head"
+    "content content"
+    "footer footer";
+    gap: 0;
+}
+
+.menu {
+    background-color: transparent;
+    position: fixed;
+    width: 50px;
+    margin-left: 5px;
+    z-index: 100000;
+    top: 110px;
+}
+
+.menu button {
+    all: unset;
+    display: block-inline;
+}
+
 .ord-idea {
 	font-size: 20px;
 }
@@ -225,94 +308,43 @@ table img {
     width: 59%;
 }
 
-.grid{
-    width:1000px;
-    margin:0 auto 0 auto;
-    display:grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-areas:
-    "top top"
-    "head head"
-    "sidebar content"
-    "sidebar footer";
-    gap: 0;
-}
-
-.topbar {
-    grid-area: top;
-    display:grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-areas: 
-    "nav nav";
-    height: 100px;
-    position: sticky;
-    top:0;
-    z-index: 100;
-}
-
-nav {
-    grid-area: nav;
-    background-color: black;
-    display:block;
-    height: 100px;
-    width:(vw);
-}
-
-.logonav {
-    grid-area: logonav;
-    height:100px;
-}
-
-
-nav ul li {
-    list-style: none;
-    display:block;
-    float:left;
-    line-height: 100px;
-}
-
-nav ul li a {
-    color:white;
-    text-decoration: none;
-    display:block;
-    padding:0 20px;
-    font-family: sans-serif;
-}
-
-nav ul li a:hover, .current {
-    background-color:rgb(62%,100%,58%);
-    color:black;
-}
-
-header {
-    grid-area:head;
-    margin-bottom: 10px;
-}
-
-header img {
-    border-radius: 0 0 50px 50px;
-    width:100%;
-    height: 100%;
-    filter: brightness(200%);
-}
-
 aside {
     margin-right: 5px;
     top:100px;
     height:calc(100vh - 140px);
-    position: sticky;
+    position: fixed;
     align-self:start;
     grid-area:sidebar;
     background-color: aliceblue;
-    border-radius: 50px/* 0 0 50px*/;
+    border-radius: 50px;
     padding: 20px;
     display:flex;
     flex-flow:wrap;
     justify-content: center;
     align-content: flex-start;
+    z-index: 1001;
+    width: 300px;
+    left: -340px;
+    transition: left .3s ease-in-out;
 }
 
-.home-page, .about-side {
+aside.show{
+    left: 0;
+}
+
+aside.show ~ #overlay {
+    display: block;
+}
+
+#overlay {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: none;
+}
+
+.home-page {
     padding: 10px;
     display:flex;
     flex-flow:wrap;
@@ -324,20 +356,20 @@ aside h2 {
     padding: 5px;
 }
 
-.home-page h2, .about-side h2{
+.home-page h2 {
     font-family:sans-serif;
     padding: 5px;
 }
 
-.home-page ul, .about-side ul {
+.home-page ul {
     list-style: none;
 }
 
-.home-page ul li, .about-side ul li{
+.home-page ul li {
     margin: 5px;
 }
 
-.home-page button, .about-side button {
+.home-page button {
     display: block;
     border: none;
     background-color: aqua;
@@ -351,17 +383,17 @@ aside h2 {
     margin: auto;
 }
 
-.home-page button:hover, .about-side button:hover {
+.home-page button:hover {
     background-color: aquamarine;
     width: 175px;
     border-radius: 25px;
 }
 
-.home-page a, .about-side a {
+.home-page a {
     text-decoration: none;
 }
 
-.home-page h3, .about-side h3 {
+.home-page h3 {
     text-decoration: none;
 }
 
@@ -394,147 +426,36 @@ aside h2 {
     font-size: 25px;
 }
 
-.gallery {
-    columns: 3 auto;
-    margin: 10px 0;
-    display: block;
-    height: fit-content;
-}
-
-.gall-imgs {
-    display: block;
-    margin-bottom: 1em;
-    position: relative;
-}
-
-.gall-imgs img {
-    width: 250px;
-    border-radius: 20px;
-    display: block;
-    margin-bottom: .5em;
-    animation: gallery-fade;
-    animation-timeline: view();
-    transition: transform 1.3s ease;
-}
-.gall-imgs:hover img {
-    transform: scale(1.05);
-}
-
-.gall-imgs p {
-    font-family: sans-serif;
-    font-size: 1rem;
-    padding: 0 0 0 1em;
-    opacity: 0; /*sets text to transparent*/
-    max-height: 0;/*limits the height of p to 0*/
-    overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
-    transition: opacity 1.7s , max-height 1.3s ease-in-out;
-    position: absolute;
-    bottom: 10px;
-    color: white;
-}
-
-.gall-imgs:hover p {
-    opacity: 1;
-    max-height: 40px; /* Ensure this value is enough to show the full paragraph */
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 10px;
-    padding: 0 .5em;
-    margin-left: .5em;
-}
-
-
-@keyframes gallery-fade {
-    0% {opacity:0;}
-    65%,100% {opacity: 1;}
-}
-
-.contact-side {
-    padding:10px;
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-}
-
-.contact-side a {
-    font-size: 15px;
-}
-
-.contact-side p {
-    font-size: 15px;
-    padding: 10px 0;
-    font-family: sans-serif;
-}
-
 main {
     grid-area:content;
     background-color: #E9E9E9;
     border-radius: 50px;
     padding:20px;
     margin-left: 5px;
+    min-height: calc(100vh - 600px);
 }
 
-.indent {
-    padding-left:20px;
-}
-
-.indent1 {
-    padding-left: 35px;
-}
-
-.contact-main {
-    font-family: sans-serif;
-    padding: 1em;
-    display: flex;
-    flex-flow: wrap;
-    justify-content:center;
-}
-
-.contact-main h4 {
-    font-size: 32px;
-}
-
-.contact-main p {
-    flex-basis: 100%;
-    padding: 1em;
-    font-size: 16px;
-}
-
-.intro, #Mission, #Who, #Values, #Journey {
+.intro {
     scroll-margin-top: 110px;
 }
 
-.intro h1, .about-page h1, #gallery-h1 {
+.intro h1 {
     font-size: 50px;
     font-family: Helvetica;
 }
 
-#gallery-h1 {
-    text-align-last: center;
-}
-
-.intro p, .about-page p {
+.intro p {
     padding: 10px 0 0 0;
     font-size: 20px;
     font-family: arial;
     line-height: 22px;
 }
 
-.intro, .about-page {
+.intro {
     padding:10px;
 }
 
-.about-page section {
-    padding:10px;
-    animation: about-fade;
-    animation-timeline: view();
-}
-
-@keyframes about-fade {
-    from {opacity:0;}
-    to {opacity: 1;}
-}
-
-.product{
+.circuits{
     background-color: rgba(62%,100%,58%,.2);
     padding:5px 5px 10px;
     width:100%;
@@ -546,7 +467,7 @@ main {
     scroll-margin-top: 110px;
 }
 
-.product h1{
+.circuits h1{
     font-size: 50px;
     font-family: Helvetica;
     padding:10px;
@@ -554,7 +475,7 @@ main {
     text-align: center;
 }
 
-.prod1 {
+.circ {
     width:300px;
     background-color: white;
     padding:10px;
@@ -562,87 +483,44 @@ main {
     display:flex;
     flex-flow: row wrap;
     justify-content: center;
-    float:left;
+    float: var(--data-pos);
 }
 
-.prod1 img {
+.circ img {
     width:300px;
     border-radius: 20px;
     padding:0 0 10px 0;
 }
 
-.prod1 h2 {
+.circ h2 {
     order:-1;
     padding:0 0 5px;
     font-family:sans-serif;
 }
 
-.prod1 p {
-  font-family: Arial;
-  font-size: 18px;
-  opacity: 0; /*sets text to transparent*/
-  max-height: 0;/*limits the height of p to 0*/
-  overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
-  transition: opacity 2s , max-height 1.5s ease-out;
-}
-
-.prod1:hover p {
-  opacity: 1;
-  max-height: 100px; /* Ensure this value is enough to show the full paragraph */
-}
-
-
-/*
-.prod1 p {
-    font-family: arial;
+.circ p {
+    font-family: Arial;
     font-size: 18px;
-    display:none;
-    transition: display 2s ease;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    animation: circ-p forwards;
+    animation-timeline: view();
 }
 
-.prod1:hover p{
-    display:block;
-}
-*/
-
-.prod2 {
-    width:300px;
-    background-color: white;
-    padding:10px;
-    border-radius: 20px;
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    float:right;
+@keyframes circ-p {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 100px;
+    }
+  
 }
 
-.prod2 img {
-    width:300px;
-    border-radius: 20px;
-    padding:0 0 10px 0;
-}
-
-.prod2 h2 {
-    order:-1;
-    padding:0 0 5px;
-    font-family:sans-serif;
-}
-
-.prod2 p {
-  font-family: Arial;
-  font-size: 18px;
-  opacity: 0; /*sets text to transparent*/
-  max-height: 0;/*limits the height of p to 0*/
-  overflow: hidden;/*hides any text not fitting in the dimensions. i.e. all of it*/
-  transition: opacity 2s , max-height 1.5s ease-out;
-}
-
-.prod2:hover p {
-  opacity: 1;
-  max-height: 100px; /* Ensure this value is enough to show the full paragraph */
-}
-
-.testims{
+.components{
     padding:10px;
     display:flex;
     flex-flow: wrap;
@@ -650,13 +528,13 @@ main {
     scroll-margin-top: 110px;
 }
 
-.testims h1{
+.components h1{
     font-size: 50px;
     font-family: Helvetica;
     padding:10px;
 }
 
-.testim1 {
+.comp-stl1 {
     height:200px;
     background-color: azure;
     padding:20px;
@@ -669,151 +547,44 @@ main {
     margin: 10px 0;
 }
 
-.testim1 img {
+.comp-stl1 img {
     height:200px;
     border-radius: 50%;
+    order: var(--img-ord);
 }
 
-.quote1 {
+.descript1 {
     padding: 10px;
     display: flex;
     flex-flow: wrap;
     gap: 10px;
     width: fit-content;
+    justify-content: var(--text-just);
 }
 
-.quote1 .comp {
+.descript1 .comp {
     padding:0;
     max-height:0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 1.5s ease, opacity 1.5s ease;
+    animation: components forwards;
+    animation-timeline: view();
 }
 
-.quote1 p {
+.descript1 p {
     padding: 0;
 }
 
-.testim1:hover .quote1 .comp{
-    max-height: 50px;
-    opacity:1;
-    transition: max-height 1.5s ease, opacity 1.5s ease;
+@keyframes components {
+    from {
+        max-height:0;
+        opacity: 0;
+    }
+    to {
+        max-height: 50px;
+        opacity:1;
+    }
 }
-
-/*
-.testim1 p {
-    padding: 10px;
-    align-self: center;
-    opacity: 0;
-    height: fit-content;
-    max-width: 0;
-    overflow: hidden;
-    transition: max-width 3s ease, opacity 1.5s ease;
-}
-
-.testim1:hover {
-    transition:max-width 3s ease, opacity 1.5s ease;
-    max-width: 500px;
-}
-
-.testim1:hover p{
-    transition:max-width 3s ease, opacity 1.5s ease;
-    max-width: 500px;
-    opacity:1;
-}
-*/
-
-.testim2 {
-    height:200px;
-    background-color: azure;
-    padding:20px;
-    border-radius: 20px;
-    display:flex;
-    flex-flow: row ;
-    width: fit-content;
-    overflow: hidden;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.testim2 img {
-    height:200px;
-    border-radius: 50%;
-    order:1
-}
-
-.quote2 {
-    padding: 10px;
-    display: flex;
-    flex-flow: wrap;
-    gap: 10px;
-    width: fit-content;
-    justify-content: flex-end;
-}
-
-.quote2 .comp {
-    padding:0;
-    max-height:0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 1.5s ease, opacity 1.5s ease;
-}
-
-.quote2 p {
-    padding: 0;
-}
-
-.testim2:hover .quote2 .comp{
-    max-height: 50px;
-    opacity:1;
-    transition: max-height 1.5s ease, opacity 1.5s ease;
-}
-
-/*
-
-.testim3 {
-    height:200px;
-    background-color: azure;
-    padding:20px;
-    border-radius: 20px;
-    display:flex;
-    flex-flow: row ;
-    width: fit-content;
-    overflow: hidden;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.testim3 img {
-    height:200px;
-    border-radius: 50%;
-}
-
-.quote3 {
-    padding: 10px;
-    display: flex;
-    flex-flow: wrap;
-    gap: 10px;
-    width: fit-content;
-}
-
-.quote3 q {
-    padding:0;
-    max-height:0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 2s ease, opacity 2s ease;
-}
-
-.quote3 p {
-    padding: 0;
-}
-
-.testim3:hover .quote3 q{
-    max-height: 140px;
-    opacity:1;
-    transition: max-height 2s ease, opacity 2s ease;
-}*/
 
 footer {
     grid-area: footer;
@@ -910,46 +681,6 @@ footer {
     opacity: 1;
 }
 
-
-/*
-.logos {
-    display: flex;
-    gap:10px;
-}
-
-.logos a{
-    background-color: white;
-    border-radius: 50%;
-    padding: 1em;
-    height:64px;
-    width: 64px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    align-items: center;
-}
-
-.logos a svg {
-    height: 32px;
-    padding:1em;
-    align-self: center;
-    transition: .3s ease;
-    position: relative;
-}
-
-.logos svg::before {
-    content:"Twitter";
-    padding:.1em;
-    position: absolute;
-    background-color: pink;
-}
-
-/*.logos svg:hover {
-    width: 55px;
-    
-}*/
-
 .author {
     padding-right: 30px;
 }
@@ -961,23 +692,50 @@ footer {
     line-height: 27px;
 }
 
-.copyright {
-    flex-basis: 100%;
-    padding: 10px;
-    display:flex;
-    justify-content: center;
-}
+@media only screen and (min-width:1000px) {
 
-.copyright p{
-    color: white;
-    font-family: sans-serif;
-}
+    .grid{
+        width:1000px;
+        margin:0 auto 0 auto;
+        display:grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-areas:
+        "nav nav"
+        "head head"
+        "sidebar content"
+        "sidebar footer";
+        gap: 0;
+        }
 
-.copyright p a {
-    text-decoration: none;
-    color:red;
-}
+    .menu {
+        display: none;
+    }
 
-.copyright p a:hover {
-    color:pink;
+    aside {
+        position: sticky;
+        left: 0;
+        width: auto;
+    }
+
+    .circ p {
+      transition: opacity 2s , max-height 1.5s ease-out;
+      animation: none;
+    }
+
+    .circ:hover p {
+      opacity: 1;
+      max-height: 100px; /* Ensure this value is enough to show the full paragraph */
+    }
+
+    .descript1 .comp {
+        animation: none;
+        transition: max-height 1.5s ease, opacity 1.5s ease;
+    }
+
+    .comp-stl1:hover .descript1 .comp{
+        max-height: 50px;
+        opacity:1;
+        transition: max-height 1.5s ease, opacity 1.5s ease;
+    }
+
 }

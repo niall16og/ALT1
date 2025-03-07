@@ -16,33 +16,44 @@ localStorage.setItem("wordCounts", JSON.stringify(wordCounts));
 console.log(`Stored word count for ${pageName}: ${wordCount}`);
 }
 
-window.onload = countWords;
+const sidebar = document.querySelector("aside");
 
-/*
-function displayWordCounts() {
-    const wordCounts = JSON.parse(localStorage.getItem("wordCounts")) || {};
-    
-    const outputDiv = document.getElementById("wordCountsDisplay");
-    outputDiv.innerHTML = "<h1>Word Counts for All Pages</h1>";
-    let totalCount;
-    
-    if (Object.keys(wordCounts).length === 0) {
-        outputDiv.innerHTML += "<p>No word counts available yet. Visit other pages first!</p>";
+let menuStatus;
+
+window.onload = function() {
+                countWords();
+                menuClose();
+            }
+
+const button = document.querySelector(".menu button");
+
+function menuToggle() {
+    if (menuStatus === false) {
+        menuStatus = true;
+        menuOpen();
     } else {
-        for(const [page, count] of Object.entries(wordCounts)) {
-            outputDiv.innerHTML += `<p><strong>${page}</strong>: ${count} words</p>`;
-            totalCount  += count;
-        }
+        menuStatus = false;
+        menuClose();
     }
-    
-    outputDiv.innerHTML += `<hr><p><b>Total</b>: ${totalCount} words</p>`;
 }
 
-window.onload = displayWordCounts;
-
-function clearWordCounts() {
-    localStorage.removeItem("wordCounts");
-    alert("Word Counts Cleared!");
-    location.reload();
+function menuOpen() {
+    sidebar.classList.add('show');
+    button.style.transform = "rotate(180deg)";
+    button.style.transition = "transform 0.3s ease";
 }
-*/
+
+function menuClose() {
+    sidebar.classList.remove('show');
+    button.style.transform = "rotate(0deg)";
+    button.style.transition = "transform 0.3s ease";
+}
+
+// Initial state
+if (menuStatus === false) {
+    menuClose();
+} else if (menuStatus === true) {
+    menuOpen();
+} else {
+    menuClose();
+}

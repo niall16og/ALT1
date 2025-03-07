@@ -7,8 +7,12 @@
         <meta name="description" content="ALT1 References">
     </head>
     <body>
+        <div class="menu">
+                    <button onclick="menuToggle()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m242-200 206.67-280L242-760h82l206.67 280L324-200h-82Zm247.33 0L696-480 489.33-760h82L778-480 571.33-200h-82Z"/></svg>
+                    </button>
+        </div>
         <div class="grid">
-            <div class="topbar">
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.html">Meeting The Brief</a></li>
@@ -20,7 +24,6 @@
                         <li><a href="page7.html">Summary Word Count</a></li>
                     </ul>
                 </nav>
-            </div>
             <header>
                 <div data-title="References" class= head-title></div>
             </header>
@@ -30,12 +33,12 @@
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Embedded Systems</h3></button></a
+                                ><button onclick="menuClose()"><h3>Embedded Systems</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#ref-imgs"
-                                ><button><h3>Images</h3></button></a
+                                ><button onclick="menuClose()"><h3>Images</h3></button></a
                             >
                         </li>
                     </ul>
@@ -46,6 +49,7 @@
                     >
                 </div>
             </aside>
+            <div id="overlay" onclick="menuClose()"></div>
             <main>
                 <section class="intro" id="intro">
                     <h1>Embedded Systems</h1>

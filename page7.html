@@ -7,8 +7,12 @@
         <meta name="description" content="ALT 1 Word Count" />
     </head>
     <body>
+        <div class="menu">
+                    <button onclick="menuToggle()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m242-200 206.67-280L242-760h82l206.67 280L324-200h-82Zm247.33 0L696-480 489.33-760h82L778-480 571.33-200h-82Z"/></svg>
+                    </button>
+        </div>
         <div class="grid">
-            <div class="topbar">
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.html">Meeting The Brief</a></li>
@@ -20,7 +24,6 @@
                         <li><a href="page7.html" class="current">Summary Word Count</a></li>
                     </ul>
                 </nav>
-            </div>
             <header>
                 <div data-title="Summary Word Count" class="head-title"></div>
             </header>
@@ -32,6 +35,7 @@
                     <h4><p>Total Word Count: <span class="word-count"></span></p></h4>
                 </div>
             </aside>
+            <div id="overlay" onclick="menuClose()"></div>
             <main>
                 <section class="intro" id="intro">
                     <div id="wordCountsDisplay"></div>
@@ -76,7 +80,6 @@
             
             }
 
-            window.onload = countWords;
             
             function displayWordCounts() {
                 const wordCounts = JSON.parse(localStorage.getItem("wordCounts")) || {};
@@ -99,13 +102,56 @@
                 document.querySelector(".word-count").textContent = totalCount;
             }
 
-            window.onload = displayWordCounts;
 
             function clearWordCounts() {
                 localStorage.removeItem("wordCounts");
                 alert("Word Counts Cleared!");
                 location.reload();
             }
+            
+            const sidebar = document.querySelector("aside");
+
+            let menuStatus;
+
+            window.onload = function() {
+                countWords();
+                displayWordCounts();
+                menuClose();
+            }
+
+            const button = document.querySelector(".menu button");
+
+            function menuToggle() {
+                if (menuStatus === false) {
+                    menuStatus = true;
+                    menuOpen();
+                } else {
+                    menuStatus = false;
+                    menuClose();
+                }
+            }
+
+            function menuOpen() {
+                sidebar.classList.add('show');
+                button.style.transform = "rotate(180deg)";
+                button.style.transition = "transform 0.3s ease";
+            }
+
+            function menuClose() {
+                sidebar.classList.remove('show');
+                button.style.transform = "rotate(0deg)";
+                button.style.transition = "transform 0.3s ease";
+            }
+
+            // Initial state
+            if (menuStatus === false) {
+                menuClose();
+            } else if (menuStatus === true) {
+                menuOpen();
+            } else {
+                menuClose();
+            }
+
         </script>
     </body>
 </html>

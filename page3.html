@@ -7,8 +7,12 @@
         <meta name="description" content="ALT1 Plan and Design">
     </head>
     <body>
+        <div class="menu">
+                    <button onclick="menuToggle()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m242-200 206.67-280L242-760h82l206.67 280L324-200h-82Zm247.33 0L696-480 489.33-760h82L778-480 571.33-200h-82Z"/></svg>
+                    </button>
+        </div>
         <div class="grid">
-            <div class="topbar">
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.html">Meeting The Brief</a></li>
@@ -20,9 +24,9 @@
                         <li><a href="page7.html">Summary Word Count</a></li>
                     </ul>
                 </nav>
-            </div>
             <header>
-                <div data-title="Plan and Design" class= head-title></div>
+                <div data-title="Plan and Design" class="head-title"></div>
+                
             </header>
             <aside>
                 <div class="home-page">
@@ -30,27 +34,27 @@
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Project Ideas</h3></button></a
+                                ><button onclick="menuClose()"><h3>Project Ideas</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#chosen"
-                                ><button><h3>Chosen Project</h3></button></a
+                                ><button onclick="menuClose()"><h3>Chosen Project</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#design"
-                                ><button><h3>Design &amp; Function</h3></button></a
+                                ><button onclick="menuClose()"><h3>Design &amp; Function</h3></button></a
                             >
                         </li>
                         <li>
-                            <a href="#product"
-                                ><button><h3>The Circuits</h3></button></a
+                            <a href="#circuits"
+                                ><button onclick="menuClose()"><h3>The Circuits</h3></button></a
                             >
                         </li>
                         <li>
-                            <a href="#testims"
-                                ><button><h3>Components Required</h3></button></a
+                            <a href="#components"
+                                ><button onclick="menuClose()"><h3>Components Required</h3></button></a
                             >
                         </li>
                     </ul>
@@ -61,6 +65,7 @@
                     >
                 </div>
             </aside>
+            <div id="overlay" onclick="menuClose()"></div>
             <main>
                 <section class="intro" id="intro">
                     <h1>Project Ideas</h1>
@@ -79,9 +84,9 @@
                     <p>This project uses two circuits to deliver the desired outputs, one circuit for detecting motion and another for reading temperature and giving outputs. When the first circuit detects motion it will send a radio message “on” to the second circuit which will then turn on an LED light. When the first circuit stops detecting human presence it sends another radio message “off“ to the second circuit, which will then turn off the light. While the second circuit is running the thermistor will always check if the temperature is above the desired level, in this case 20°C, if it is, the motor turns on until the temperature is back to or below the desired temperature. There is also a screen on the second circuit that displays the temperature in the room.</p>
                     <br>
                 </section>
-                <section class="product" id="product">
+                <section class="circuits" id="circuits">
                     <h1>The Circuits</h1>
-                    <div class="prod1">
+                    <div class="circ" style="--data-pos: left;">
                         <img src="Circuit1.png" alt="Circuit 1" />
                         <h2>Circuit 1</h2>
                         <br />
@@ -89,7 +94,7 @@
                             This circuit will be used to detect motion, sending radio signals to the other circuit, telling it to either turn on or off the light.
                         </p>
                     </div>
-                    <div class="prod2">
+                    <div class="circ" style="--data-pos:right;">
                         <img src="circuit2.png" alt="Circuit 2" />
                         <h2>Circuit 2</h2>
                         <br />
@@ -98,55 +103,55 @@
                         </p>
                     </div>
                 </section>
-                <section class="testims" id="testims">
+                <section class="components" id="components">
                     <h1>Components Required</h1>
-                    <div class="testim1">
-                        <img src="motor.png" alt="EcoGlow Testimonial" />
-                        <div class="quote1">
+                    <div class="comp-stl1">
+                        <img style="--img-ord: 0;" src="motor.png"/>
+                        <div style="--text-just: flex-start;" class="descript1">
                             <p class="comp"
                                 >The motor drives the fan and is controlled by temperature.</p
                             >
                             <p>-Motor</p>
                         </div>
                     </div>
-                    <div class="testim2">
-                        <img src="motor-fan.png" alt="EcoGlow Testimonial" />
-                        <div class="quote2">
+                    <div class="comp-stl1">
+                        <img style="--img-ord: 1;" src="motor-fan.png"/>
+                        <div style="--text-just: flex-end;" class="descript1">
                             <p class="comp">
 								The fan goes on the end of the motor and controls direction of windflow</p>
                             <p>-Motor Fan</p>
                         </div>
                     </div>
-                    <div class="testim1">
-                        <img src="OLEDscreen.png" />
-                        <div class="quote1">
+                    <div class="comp-stl1">
+                        <img style="--img-ord: 0;" src="OLEDscreen.png" />
+                        <div style="--text-just: flex-start;" class="descript1">
                             <p class="comp">
 								The OLED screen can be used to display the current temperature in the room.
 							</p>
                             <p>-OLED Screen</p>
                         </div>
                     </div>
-					<div class="testim2">
-                        <img src="PIRsensor.png" />
-                        <div class="quote2">
+					<div class="comp-stl1">
+                        <img style="--img-ord: 1;" src="PIRsensor.png" />
+                        <div style="--text-just: flex-end;" class="descript1">
                             <p class="comp">
 								This can be used to detect whether someone is in the room or not.
 							</p>
                             <p>-PIR Sensor</p>
                         </div>
                     </div>
-					<div class="testim1">
-                        <img src="LED.png" />
-                        <div class="quote1">
+					<div class="comp-stl1">
+                        <img style="--img-ord: 0;" src="LED.png" />
+                        <div style="--text-just: flex-start;" class="descript1">
                             <p class="comp">
 								This can be used as a light that is activated depending on human presence.
 							</p>
                             <p>-Rainbow LED</p>
                         </div>
                     </div>
-					<div class="testim2">
-                        <img src="thermistor.png" />
-                        <div class="quote2">
+					<div class="comp-stl1">
+                        <img style="--img-ord: 1;" src="thermistor.png" />
+                        <div style="--text-just: flex-end;" class="descript1">
                             <p class="comp">
 								This can be used to detect the current temperature in the room.
 							</p>

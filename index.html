@@ -7,8 +7,12 @@
         <meta name="description" content="ALT1 Meeting The Brief">
     </head>
     <body>
+        <div class="menu">
+                    <button onclick="menuToggle()">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#1f1f1f"><path d="m242-200 206.67-280L242-760h82l206.67 280L324-200h-82Zm247.33 0L696-480 489.33-760h82L778-480 571.33-200h-82Z"/></svg>
+                    </button>
+        </div>
         <div class="grid">
-            <div class="topbar">
                 <nav class="navbar">
                     <ul>
                         <li><a href="index.html" class="current">Meeting The Brief</a></li>
@@ -20,9 +24,8 @@
                         <li><a href="page7.html">Summary Word Count</a></li>
                     </ul>
                 </nav>
-            </div>
             <header>
-                <div data-title="Meeting The Brief" class= head-title></div>
+                <div data-title="Meeting The Brief" class="head-title"></div>
             </header>
             <aside>
                 <div class="home-page">
@@ -30,17 +33,17 @@
                     <ul>
                         <li>
                             <a href="#intro"
-                                ><button><h3>Analysis of Brief</h3></button></a
+                                ><button onclick="menuClose()"><h3>Analysis of Brief</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#aims"
-                                ><button><h3>Aims &amp; Objectives</h3></button></a
+                                ><button onclick="menuClose()"><h3>Aims &amp; Objectives</h3></button></a
                             >
                         </li>
                         <li>
                             <a href="#learn"
-                                ><button><h3>Key Learnings</h3></button></a
+                                ><button onclick="menuClose()"><h3>Key Learnings</h3></button></a
                             >
                         </li>
                     </ul>
@@ -51,6 +54,7 @@
                     >
                 </div>
             </aside>
+            <div id="overlay" onclick="menuClose()"></div>
             <main>
                 <section class="intro" id="intro">
                     <h1>Analysis Of Brief</h1>
